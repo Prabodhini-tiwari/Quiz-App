@@ -1,0 +1,274 @@
+/* General Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #232526, #414345); /* Elegant dark gradient */
+  color: #fff;
+  text-align: center;
+  line-height: 1.6;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  overflow: hidden; /* Prevent vertical scroll */
+  animation: fadeIn 1s ease-in-out;
+  flex-direction: column; /* Ensure vertical stacking of elements */
+}
+
+/* Smooth Fade-In Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* App Container */
+.app {
+  width: 600px; /* Fixed size */
+  max-width: 90%; /* Ensures it looks good on smaller screens */
+  padding: 30px;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(10px);
+  transform: scale(0.9);
+  animation: scaleUp 0.5s ease-in-out forwards;
+  position: relative; /* For timer positioning */
+  display: flex;
+  flex-direction: column; /* Stack content vertically */
+  align-items: center; /* Center content horizontally */
+  gap: 20px; /* Add some gap between elements */
+}
+
+@keyframes scaleUp {
+  to {
+    transform: scale(1);
+  }
+}
+
+/* Timer Container */
+.timer-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative; /* Make it stack below on smaller screens */
+  z-index: 10;
+  margin-top: 20px; /* Add some margin for spacing */
+}
+
+.timer-icon {
+  font-size: 1.5rem;
+  color: #ffffff;
+  animation: pulse 1.5s infinite;
+}
+
+.timer-container p {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #f39c12; /* Golden color for timer */
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+/* Headings */
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 30px; /* Increased margin to ensure space for the timer */
+  color: #ecf0f1; /* Light grey for a modern feel */
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+h3 {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  color: #ecf0f1;
+  word-wrap: break-word;
+  text-align: center;
+  line-height: 1.4;
+  overflow-wrap: break-word;
+  white-space: normal;
+}
+
+/* Quiz Form */
+form {
+  margin: 20px auto;
+  max-width: 500px;
+  text-align: left;
+}
+
+form label {
+  display: block;
+  font-size: 1rem;
+  margin: 10px 0;
+  padding: 12px 15px;
+  background: rgba(255, 255, 255, 0.2); /* Slightly darker background for labels */
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+form label:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-3px);
+}
+
+form input[type="radio"] {
+  margin-right: 10px;
+}
+
+/* Buttons */
+button {
+  display: inline-block;
+  background: #2980b9; /* Light teal for the button */
+  color: #fff;
+  border: none;
+  padding: 12px 25px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+button:disabled {
+  background: #7f8c8d;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.quiz-reset {
+  background: #3498db; /* Blue color for reset button */
+}
+
+.quiz-reset:hover {
+  background: #2980b9;
+}
+
+/* Score Section */
+.score-section h3 {
+  font-size: 1.5rem;
+  color: #f39c12; /* Golden color for score */
+  margin-bottom: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .app {
+    width: 90%;
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 2.4rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  form label {
+    font-size: 1.1rem;
+  }
+
+  button {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  /* Adjust timer container to be below heading */
+  .timer-container {
+    position: relative;
+    margin-top: 30px; /* More space between heading and timer */
+    justify-content: center; /* Center the timer horizontally */
+  }
+}
+
+@media (max-width: 768px) {
+  .app {
+    width: 90%;
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 2.4rem;
+  }
+
+  h2 {
+    font-size: 1.4rem;
+  }
+
+  form label {
+    font-size: 1rem;
+    padding: 10px;
+  }
+
+  button {
+    width: 100%;
+  }
+
+  /* Further adjust timer position for smaller screens */
+  .timer-container {
+    margin-top: 30px; /* More space to separate from heading */
+    justify-content: center; /* Center the timer */
+  }
+
+  .timer-container p {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .app {
+    padding: 15px;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+  }
+
+  form label {
+    font-size: 0.9rem;
+  }
+
+  button {
+    padding: 10px 15px;
+    font-size: 0.9rem;
+  }
+
+  .timer-container {
+    margin-top: 20px; /* Less margin, but enough to avoid overlap */
+    justify-content: center;
+  }
+
+  .timer-container p {
+    font-size: 1rem;
+  }
+}
